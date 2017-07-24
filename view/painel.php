@@ -24,12 +24,10 @@
 	<div class="row">
 		<div class="col s12">
 			<form id="advert" action="../routes/routes.php" method="POST" name="formAdv">
-
-				<!--PEGAR NOME DO RESPONSAVEL DIRETAMENTE DO LOGIN RELACIONADO EVITANDO TRETAS-->
 				
 				<div class="row">
 					<div class="input-field col s8" id="motivo">
-						<select>
+						<select name="selectMotivo" required="required">
 							<option value="" disabled selected>Escolha uma das opções</option>	
 							<option value="motivo1">Ausência em Reunião</option>
 							<option value="motivo2">Atraso em Reuniões</option>
@@ -55,7 +53,7 @@
 				<div class="row">
 					<div class="row input-field col s8" >
 						<label for="birthdate" class="">Data</label>
-						<input id="birthdate" type="date" class="datepicker" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="birthdate_root">
+						<input id="birthdate" name="data" type="date" class="datepicker" readonly="" tabindex="-1" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="birthdate_root">
 					</div>	
 
 				</div>
@@ -63,18 +61,27 @@
 				<div class="row">		
 					<div id="pont" class="input-field col s8">
 					<label for="points">Pontos</label>
-						<input id="points" type="text" name="pontos" disabled value=" ">
+						<input id="points" type="text" name="pontos" readonly="readonly" value=" ">
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s8">
 					<label for="resp">Responsável</label>
-						<input id="resp" type="text" name="responsavel" disabled value="<?php isset($_SESSION['nome']) ? print $_SESSION['nome'] : false; ?>">
+						<input id="resp" type="text" name="responsavel" readonly="readonly" value="<?php isset($_SESSION['nome']) ? print $_SESSION['nome'] : false; ?>">
 						
 					</div>
 				</div>
+				<div class="row">
+					<div class="input-field col s8">
+						<select name="selectIndef" id="indef">
+							<option value="0" selected>Não</option>
+							<option value="1" >Sim</option>
+						</select>
+						<label>Indeferida</label>
+					</div>
+				</div>
 
-				<button id="envAdv" type="button" class="btn waves-effect waves-light"  name="envAdv">Submit<i class="material-icons right">send</i></button>
+				<button id="envAdv" type="submit" class="btn waves-effect waves-light"  name="envAdv">Submit<i class="material-icons right">send</i></button>
 				
 			</form>
 		</div>

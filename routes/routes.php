@@ -1,6 +1,7 @@
 <?php 
 	
 	require_once '../model/Membro.class.php';
+	require_once '../model/Advertencia.class.php';
 
 	session_start();
 
@@ -34,12 +35,25 @@
 		unset($_POST['logout']);
 		session_destroy();
 		header("location:../view/login.php");
-	}else{
-		echo "else";
-		
 	}
 
 	if(isset($_POST['envAdv'])){
-		echo "enviou";
+
+		$motivo = $_POST['selectMotivo'];
+		$data = $_POST['data'];
+		$pontos = $_POST['pontos'];
+		$responsavel = $_POST['responsavel'];
+		$indeferida = $_POST['selectIndef'];
+
+		unset($_POST['envAdv']);
+		
+		$adv = new Advertencia($motivo, $data, $pontos, $responsavel, $indeferida);
+		$add = $adv->addAdvertencia();
+		if($add){
+			header("location:../view/painel.php?add=true");
+		}else{
+			header("location:../view/painel.php?add=false");
+		}
+
 	}
 ?>

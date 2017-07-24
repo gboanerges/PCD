@@ -92,8 +92,8 @@ require_once '../database/Connection.class.php';
 			// }
 			
 			$conn = Connection::getInstance();
-			$query = "SELECT * FROM usuarios WHERE login = \"$this->login\" AND senha = \"$this->senha\";";
-			$sql = $conn->query($query);
+			$queryAuth = "SELECT * FROM usuarios WHERE login = \"$this->login\" AND senha = \"$this->senha\";";
+			$sql = $conn->query($queryAuth);
 			$row = $sql->fetch(PDO::FETCH_ASSOC);
 			
 			return $row;

@@ -4,8 +4,8 @@
 	/**
 	* 
 	*/
-	class ClassName extends AnotherClass
-	{
+	class Advertencia {
+
 		public $motivo=null;
 		public $data=null;
 		public $pontos=null;
@@ -13,12 +13,12 @@
 		public $indeferida=null;
 
 		function __construct($motivo, $data, $pontos, $responsavel, $indeferida){		
+
 			$this->motivo = $motivo;
 			$this->data = $data;
 			$this->pontos = $pontos;
 			$this->responsavel = $responsavel;
 			$this->indeferida = $indeferida;
-
 		}
 
 		//get e set motivo
@@ -65,6 +65,14 @@
 		public function setIndeferida($indeferida){
 			$this->indeferida = $indeferida;
 		}
+
+		public function addAdvertencia(){
+			$conn = Connection::getInstance();
+			$queryAdd = "INSERT INTO advertencias (`motivo`, `data`, `pontos`, `responsavel`, `indeferida`) VALUES (\"$this->motivo\", \"$this->data\", \"$this->pontos\", \"$this->responsavel\", \"$this->indeferida\");";
+			$sql = $conn->query($queryAdd);
+			return $sql;
+		}
+
 	}
 	
 ?>
