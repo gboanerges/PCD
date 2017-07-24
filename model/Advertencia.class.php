@@ -66,13 +66,6 @@
 			$this->indeferida = $indeferida;
 		}
 
-		public function addAdvertencia(){
-			$conn = Connection::getInstance();
-			$queryAdd = "INSERT INTO advertencias (`motivo`, `data`, `pontos`, `responsavel`, `indeferida`) VALUES (\"$this->motivo\", \"$this->data\", \"$this->pontos\", \"$this->responsavel\", \"$this->indeferida\");";
-			$sql = $conn->query($queryAdd);
-			return $sql;
-		}
-
 	}
 	
 ?>

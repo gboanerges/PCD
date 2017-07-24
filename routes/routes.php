@@ -2,6 +2,7 @@
 	
 	require_once '../model/Membro.class.php';
 	require_once '../model/Advertencia.class.php';
+	require_once '../controller/AdvertenciasController.class.php';
 
 	session_start();
 
@@ -46,9 +47,10 @@
 		$indeferida = $_POST['selectIndef'];
 
 		unset($_POST['envAdv']);
-		
-		$adv = new Advertencia($motivo, $data, $pontos, $responsavel, $indeferida);
-		$add = $adv->addAdvertencia();
+
+		//$adv = new Advertencia($motivo, $data, $pontos, $responsavel, $indeferida);
+		$advController = new AdvertenciasController();
+		$add = $advController->addAdvertenciaDB($motivo, $data, $pontos, $responsavel, $indeferida);
 		if($add){
 			header("location:../view/painel.php?add=true");
 		}else{
