@@ -2,12 +2,14 @@
 	session_start();
 	if (!isset($_SESSION['auth'])) {
 		header("location:../view/login.php?valid=false");
+		
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Advertencias - PCD</title>
+	<title>Advertências</title>
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="js/painel.js"></script>
 	<!-- Compiled and minified CSS -->
@@ -21,13 +23,13 @@
 
 	<div class="row">
 		<div class="col s12">
-			<form class="" id="advert" action="../routes/routes.php" method="POST">
+			<form id="advert" action="../routes/routes.php" method="POST" name="formAdv">
 
 				<!--PEGAR NOME DO RESPONSAVEL DIRETAMENTE DO LOGIN RELACIONADO EVITANDO TRETAS-->
 				
 				<div class="row">
 					<div class="input-field col s8" id="motivo">
-						<select required="required" >
+						<select>
 							<option value="" disabled selected>Escolha uma das opções</option>	
 							<option value="motivo1">Ausência em Reunião</option>
 							<option value="motivo2">Atraso em Reuniões</option>
@@ -39,12 +41,13 @@
 						<label>Motivo</label>
 					</div>
 
-					<div class="fixed-action-btn horizontal click-to-toggle">
+				<div class="fixed-action-btn horizontal click-to-toggle">
 					    <a class="btn-floating btn-large red">
 					      <i class="material-icons">supervisor_account</i>
 					    </a>
 					    <ul>
-					      <li><a id="logout" class="btn-floating blue" name="logout"><i class="material-icons">exit_to_app</i></a></li>
+							
+					      <li><a id="logout" type="button" class="btn-floating blue" name="logout" title="Exit"><i class="material-icons">exit_to_app</i></a></li>
 					    </ul>
 	  				</div>
 				</div>
@@ -66,12 +69,13 @@
 				<div class="row">
 					<div class="input-field col s8">
 					<label for="resp">Responsável</label>
-						<input id="resp" type="text" name="responsavel">
+						<input id="resp" type="text" name="responsavel" disabled value="<?php isset($_SESSION['nome']) ? print $_SESSION['nome'] : false; ?>">
+						
 					</div>
 				</div>
 
-				<button id="envPainel" class="btn waves-effect waves-light" type="submit" name="envAdv">Submit<i class="material-icons right">send</i></button>
-
+				<button id="envAdv" type="button" class="btn waves-effect waves-light"  name="envAdv">Submit<i class="material-icons right">send</i></button>
+				
 			</form>
 		</div>
 	</div>

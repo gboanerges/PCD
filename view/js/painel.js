@@ -48,13 +48,14 @@ $(document).ready(function(){
 		}
 	});
   		
-	
-	$("#envPainel").click(function(){
-			
-		
-
+	$("#envAdv").click(function(){
+		if($("#motivo option:selected").val()==""){
+			alert("Escolha uma opção!");
+		}else{
+			location.href='../routes/routes.php';
+		}
 	});
-
+	
 	$("#logout").click(function(){
 			
 		location.href='../routes/routes.php';
