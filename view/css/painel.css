@@ -1,0 +1,16 @@
+#nav{
+
+    background-color: #26a69a;
+    margin-bottom: 40px;
+}
+.container {
+
+    border-style: solid;
+    border-color: #26a69a;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}
+#logout {
+    
+    align-content: flex-end;
+}

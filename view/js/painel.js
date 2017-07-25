@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$('.datepicker').pickadate({
 	    selectMonths: true, // Creates a dropdown to control month
 		selectYears: 15, // Creates a dropdown of 15 years to control year
-		format: 'yyyy-mm-dd',
+		format: 'yyyy-mm-dd', //Formata a data
  	 });
 
 
@@ -59,11 +59,39 @@ $(document).ready(function(){
 		}
 	});
 	
-	$("#logout").click(function(){
+	 $("#logout").click(function(){
+		
+	// 	$.ajax({
 
-		location.href='../routes/routes.php';
+	// 		url: "../routes/routes.php",
+	// 		type: "POST",
+	// 		data: "name=logout",
 
-	});
+			
+	// 	})
+		
+	// 	.done(function(msg){
+	// 		alert("done");
+  	// 	})
+		
+	// 	.fail(function(jqXHR, textStatus, msg){
+	// 	    alert("fail");
+	// 	}); 
+
+	// 	location.href='../routes/routes.php';
+
+	$.ajax({
+            url: 'http://localhost:8080/routes/routes.php',
+            type: 'get',
+            data:{action:'logoff'},
+            success: function(){
+            alert("Deslogado com sucesso!");
+                location.reload();
+                
+            }
+        });
+	 });
+
 
 });
 

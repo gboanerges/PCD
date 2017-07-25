@@ -30,10 +30,10 @@
 		}
 	}
 	
-	if (isset($_POST['logout'])) {
+	if (isset($_GET['action']) && $_GET['action'] == "logoff") {
 
 		unset($_SESSION['auth']);
-		unset($_POST['logout']);
+		unset($_GET['logoff']);
 		session_destroy();
 		header("location:../view/login.php");
 	}
@@ -48,7 +48,6 @@
 
 		unset($_POST['envAdv']);
 
-		//$adv = new Advertencia($motivo, $data, $pontos, $responsavel, $indeferida);
 		$advController = new AdvertenciasController();
 		$add = $advController->addAdvertenciaDB($motivo, $data, $pontos, $responsavel, $indeferida);
 		if($add){
