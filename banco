@@ -1,0 +1,22 @@
+NOME DO BANCO = pcd_db
+CREATE TABLE `advertencias` (
+ `id` int(16) NOT NULL AUTO_INCREMENT,
+ `motivo` varchar(255) NOT NULL,
+ `data` date NOT NULL,
+ `pontos` int(5) NOT NULL,
+ `responsavel` varchar(255) NOT NULL,
+ `indeferida` tinyint(1) NOT NULL,
+ `membro` int(16) NOT NULL,
+ PRIMARY KEY (`id`),
+ KEY `membro` (`membro`),
+ KEY `membro_2` (`membro`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1
+
+CREATE TABLE `usuarios` (
+ `id` int(16) NOT NULL AUTO_INCREMENT,
+ `login` varchar(255) NOT NULL,
+ `senha` varchar(255) NOT NULL,
+ `nome` varchar(255) NOT NULL,
+ `cargo` varchar(255) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1
