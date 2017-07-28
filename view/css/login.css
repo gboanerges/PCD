@@ -1,0 +1,32 @@
+#nav {
+
+    background-color: #1d6fb7;
+    margin-bottom: 40px;
+}
+
+.container {
+
+    
+    border-style: solid;
+    border-color: #1d6fb7;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+
+   
+}
+
+#logBTN {
+
+    background-color: #1d6fb7;
+}
+
+
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid #1d6fb7 !important;
+     box-shadow: 0 1px 0 0 #1d6fb7 !important;
+}
+
+.input-field input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid #1d6fb7 !important;
+     box-shadow: 0 1px 0 0 #1d6fb7 !important;
+}

@@ -9,20 +9,17 @@ require_once '../database/Connection.class.php';
 		public $senha=null;
 		public $nome=null;
 		public $cargo=null;
-		public $privilegio=null;
-		
-		public $historico = null;
 		public $foto = null;
 
-		function __construct($login, $senha, $nome, $cargo, $privilegio){
+		function __construct($login, $senha, $nome, $cargo){
 			$this->login = $login;
 			$this->senha = $senha;
 			$this->nome = $nome;		
 			$this->cargo = $cargo;		
-			$this->privilegio = $privilegio;				
+						
 		}
 
-		//get e set Login
+		//get e set Id
 		public function getId(){
 			return $this->id;
 		}	
@@ -68,35 +65,14 @@ require_once '../database/Connection.class.php';
 			$this->cargo = $cargo;
 		}	
 
-		//get e set privilegio
-		public function getPrivilegio(){
-			return $this->privilegio;
+		//get e set Foto
+		public function getFoto(){
+			return $this->foto;
 		}	
 
-		public function setPrivilegio($privilegio){
-			$this->privilegio = $privilegio;
-		}	
-
-		public function auth()
-		{
-			// acessar o banco
-			// procurar por ela mesma
-			// verificar se o valor de login e senha são iguais
-
-			// $login = "aaa";
-			// $senha = "123";
-			// if ($this->login == $login && $this->senha == $senha) {
-			// 	return true;
-			// }else{
-			// 	return false;
-			// }
-			
-			$conn = Connection::getInstance();
-			$queryAuth = "SELECT * FROM usuarios WHERE login = \"$this->login\" AND senha = \"$this->senha\";";
-			$sql = $conn->query($queryAuth);
-			$row = $sql->fetch(PDO::FETCH_ASSOC);
-			
-			return $row;
-		}	
+		public function setFoto($foto){
+			$this->foto = $foto;
+		}
+	
 	}
 ?>

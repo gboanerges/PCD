@@ -1,0 +1,24 @@
+#nav{
+
+    background-color: #1d6fb7;
+    margin-bottom: 40px;
+}
+
+#tabela {
+    font-size: 12pt;
+}
+#tabela thead tr {
+
+    background-color: #1d6fb7;
+    border-radius: 30px;
+    font-weight: bold;
+    color:white;
+    
+   
+}
+
+table.highlight tbody tr:hover {
+    background-color: aliceblue !important;
+    color:darkblue;
+    
+}

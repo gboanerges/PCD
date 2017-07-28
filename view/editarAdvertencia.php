@@ -1,16 +1,23 @@
 <?php 
-	session_start();
+	 session_start();
+	 require_once("../controller/AdvertenciasController.class.php");
 	if (!isset($_SESSION['auth'])) {
 		header("location:../view/login.php?valid=false");
 		
 	}
+	//
 	if(isset($_SESSION['cargo'])){
         if($_SESSION['cargo']=="Diretor" || $_SESSION['cargo']=="Conselheiro"){
-          
+            
         }else{
             header("location:../view/profile.php?adm=false");
         }
     }
+
+	$membrosController = new AdvertenciasController();
+	if(isset($_GET['userId'])){
+		$contas = $membrosController->getContaById($_GET['userId']);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/painel.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-	<script type="text/javascript" src="js/painel.js"></script>
+	<script type="text/javascript" src="js/editarAdv.js"></script>
 	<!-- Compiled and minified CSS -->
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
   	<!-- Compiled and minified JavaScript -->
@@ -29,7 +36,7 @@
 
 </head>
 <body>
-	  <!-- Dropdown Structure Navbar Gerenciar -->
+	 <!-- Dropdown Structure Navbar Gerenciar -->
 	<ul id="dropdown1" class="dropdown-content">
         <li><a id="advBTN">Advertências</a></li>
         <li class="divider"></li>
@@ -37,18 +44,19 @@
     </ul>
 	<nav id="nav">
 		<div class="nav-wrapper">
-		<a href="#" class="brand-logo center">Advertências</a>
+		<a href="#" class="brand-logo center">Editar Advertência</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a id="regras" type="button">Regras</a></li> 
-			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Gerenciar<i class="material-icons right">settings</i></a></li>
-			<li><a id="logout" type="button" name="logoff">Logout</a></li> 
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Gerenciar<i class="material-icons right">settings</i></a></li>
+			<li><a id="logoutEditAdv" type="button" name="logoff">Logout</a></li> 
 		</ul>
 		</div>
  	</nav>
 
 	<div id="divConteudo" class="container">
-		<!--Atualizar para Modificar advertencias e mudar php para UPDATE-->
-		<h4 class="text-justify">Adicionar advertências</h4>
+		
+		<h4 class="text-justify">Editar Advertência</h4>
 		<div class="row">
 			<div class="col s12">
 				<form id="advert" action="../routes/routes.php" method="POST" name="formAdv">
@@ -88,7 +96,7 @@
 
 					<div class="row">		
 						<div id="membro" class="input-field col s12">
-						<label for="membro">Penalizado</label>
+						<label for="points">Vítima</label>
 							<input id="membro" type="text" name="membro">
 						</div>
 					</div>
@@ -109,8 +117,14 @@
 						</div>
 					</div>
 					<div class="row">
+						<div class="input-field col s12">
+							<label for="advID">ID</label>
+							<input id="advID" type="text" name="advID" readonly="readonly"value="<?php print $adv[0]['id']; ?>"><br><br>
+						</div>
+					</div>
+					<div class="row">
 						<div class="col s3">
-							<button id="envAdv" type="submit" class="btn waves-effect waves-light"  name="envAdv">Submit<i class="material-icons right">send</i></button>
+							<button id="editAdv" type="submit" class="btn waves-effect waves-light"  name="editAdv">Editar<i class="material-icons right">send</i></button>
 						</div>		
 					</div>
 				</form>

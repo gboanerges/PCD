@@ -6,9 +6,12 @@
 
 	if (isset($_SESSION['auth'])) {
 		if ($_SESSION['auth']) {
-			header("location:../view/painel.php");			
-		}else{
-			header("location:../view/login.php");
+			if($_SESSION['cargo']=="Diretor" || $_SESSION['cargo']=="Conselheiro"){
+				
+				header("location:../view/profileAdm.php");
+			}else{
+				header("location:../view/profile.php");
+			}
 		}
 	}else{
 		header("location:../view/login.php");

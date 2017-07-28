@@ -1,12 +1,6 @@
-function updatePoints() {
-    var x = document.getElementById("#qtdDias").value;
-    document.getElementById("#points").innerHTML = x;
-}
-
 $(document).ready(function(){
 
-	
-	$('select').material_select();
+    $('select').material_select();
 
 	$('.datepicker').pickadate({
 	    selectMonths: true, // Creates a dropdown to control month
@@ -63,41 +57,34 @@ $(document).ready(function(){
 				
 			$("#points").val("10");
 		}
-	});
-  		
-	$("#envAdv").click(function(){
-		if($("#motivo option:selected").val()==""){
-			alert("Escolha uma opção!");
-		}
-	});
-	
-	$("#logout").click(function(){
+    });
+    
+	$("#logoutEditAdv").click(function(){
 
 		$.ajax({
-            url: 'http://localhost:8080/routes/routes.php',
-            type: 'get',
-            data:{action:'logoff'},
-            success: function(){
-            alert("Deslogado com sucesso!");
-                location.reload();
-            }
-        });
-	 });
+			url: 'http://localhost:8080/routes/routes.php',
+			type: 'get',
+			data:{action:'logoff'},
+			success: function(){
+			alert("Deslogado com sucesso!");
+				location.reload();
+			}
+		});
+	});
 
-	 $("#regras").click(function(){
+	$("#advBTN").click(function(){
 
-        window.location= "http://localhost:8080/view/regras.php";
-    });
+		window.location= "http://localhost:8080/view/advertencias.php";
+	});
 
-    $("#advBTN").click(function(){
+	$("#contasBTN").click(function(){
 
-      window.location= "http://localhost:8080/view/advertencias.php";
-  });
+		window.location= "http://localhost:8080/view/gerenciarContas.php";
+	});
 
-  $("#contasBTN").click(function(){
+	$("#regras").click(function(){
 
-      window.location= "http://localhost:8080/view/gerenciarContas.php";
-  });
-	 
+		window.location= "http://localhost:8080/view/regras.php";
+     });
+     
 });
-

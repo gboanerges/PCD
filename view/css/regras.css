@@ -1,0 +1,71 @@
+a {
+    text-decoration: none;
+    
+}
+
+
+#nav {
+
+    background-color: #1d6fb7;
+    margin-bottom: 40px;
+    font-family: 'Roboto Slab', serif;
+}
+
+div.container {
+
+    font-family: 'Roboto Slab', serif;
+}
+
+h3 {
+
+    text-align: center;
+}
+
+.page-header {
+
+    color: cornflowerblue;
+}
+
+
+#motivos{
+
+    padding-bottom: 20px;
+}
+
+#motivos div{
+
+    background-color: azure;
+    color: darkslategray;
+    /*padding: 10px 10px 10px 10px;*/
+   
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#motivos h4{
+    color: darkslategray;
+}
+#motivos .btn{
+
+    font-size: 11pt;
+    font-weight: bold;
+    letter-spacing: 1px;   
+    background-color: #1d6fb7;
+    display: block;
+    width: 100%;
+}
+
+#motivos .btn:hover{
+    
+    letter-spacing: 2px;
+    
+}
+
+/*DIV TEXTO PCD*/
+#info {
+    
+    background-color: aliceblue;
+    font-size: 12pt;
+}
+
+

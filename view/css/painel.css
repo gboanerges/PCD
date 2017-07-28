@@ -1,16 +1,54 @@
+body {
+    font-family: 'Roboto Slab', serif;
+}
 #nav{
 
-    background-color: #26a69a;
+    background-color: #1d6fb7;
     margin-bottom: 40px;
 }
-.container {
+
+h4{
+
+    color:cornflowerblue ;
+    text-align: center;
+}
+
+#divConteudo {
 
     border-style: solid;
-    border-color: #26a69a;
+    border-color: #1d6fb7;
     border-radius: 10px;
     padding: 10px 10px 10px 10px;
 }
-#logout {
-    
-    align-content: flex-end;
+
+/*Botao de enviar adv*/
+#envAdv {
+    background-color: #1d6fb7;
+}
+/*Botao de editar adv*/
+#editAdv{
+    background-color: #1d6fb7;
+}
+
+/* label underline focus color */
+div.input-field input[type=text]:focus {
+    border-bottom: 1px solid #1d6fb7;
+    box-shadow: 0 1px 0 0 #1d6fb7;
+}
+
+/*Altera a cor do date picker-Materialize*/
+div.picker__date-display{
+    background-color: #1d6fb7;
+}
+
+div.picker__weekday-display{
+    background-color: #1d6fb7;
+}
+
+div.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted {
+    background-color: #1d6fb7;
+}
+
+button.picker__today, button.picker__close {
+    color: #1d6fb7;
 }

@@ -1,0 +1,32 @@
+body{
+    font-family: 'Roboto Slab', serif;
+}
+
+div a:link {
+    text-decoration: none;
+}
+#add {
+     background-color: #1d6fb7;
+}
+
+#nav{
+
+    background-color: #1d6fb7;
+    margin-bottom: 40px;
+}
+/*MAIN TABLE*/
+#mainTable th{
+    background-color: #1d6fb7;
+    color: white;
+}
+
+/*INNER TABLE*/
+#innerTable tr{
+    background-color: white;
+     border-color: red;
+}
+
+
+
+
+
