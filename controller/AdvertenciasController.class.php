@@ -28,7 +28,7 @@
 
 			$advertencias = [];
 			$conn = Connection::getInstance();
-			$query = "SELECT * FROM advertencias WHERE membro=\"$id\";";
+			$query = "SELECT * FROM advertencias WHERE id=\"$id\";";
 			$sql = $conn->query($query);
 			while($row = $sql->fetch(PDO::FETCH_ASSOC)){
         	array_push($advertencias, $row);
@@ -46,7 +46,7 @@
 		public function editarAdvertencia($motivo, $data, $pontos, $responsavel, $indeferida, $advId){
 
 			$conn = Connection::getInstance();
-			$query = "UPDATE advertencias SET motivo=\"$motivo\", data=\"$data\", pontos=\"$pontos\", responsavel=\" $responsavel\" indeferida=\" $indeferida\" WHERE id=\"$advId\";";
+			$query = "UPDATE advertencias SET motivo=\"$motivo\", data=\"$data\", pontos=\"$pontos\", responsavel=\"$responsavel\", indeferida=\"$indeferida\" WHERE id=\"$advId\";";
 			$sql = $conn->query($query);
 			
 			return $sql;

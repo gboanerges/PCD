@@ -85,7 +85,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="userID">ID</label>
-							<input id="userID" type="text" name="userID" readonly="readonly"value="<?php print $contas[0]['id']; ?>"><br><br>
+							<input id="userID" type="text" name="userID" readonly="readonly" value="<?php print $_GET['userId']; ?>"><br><br>
 						</div>
 					</div>
                     <!--

@@ -5,19 +5,19 @@
 		header("location:../view/login.php?valid=false");
 		
 	}
-	//
+	$advController = new AdvertenciasController();
 	if(isset($_SESSION['cargo'])){
         if($_SESSION['cargo']=="Diretor" || $_SESSION['cargo']=="Conselheiro"){
-            
+            if(isset($_GET['advId'])){
+
+				$idAdv = $_GET['advId'];
+				$adv = $advController->getAdvertenciasById($idAdv);
+			}
         }else{
             header("location:../view/profile.php?adm=false");
         }
-    }
-
-	$membrosController = new AdvertenciasController();
-	if(isset($_GET['userId'])){
-		$contas = $membrosController->getContaById($_GET['userId']);
-	}
+    }	
+	
 ?>
 
 <!DOCTYPE html>
@@ -96,8 +96,8 @@
 
 					<div class="row">		
 						<div id="membro" class="input-field col s12">
-						<label for="points">Vítima</label>
-							<input id="membro" type="text" name="membro">
+						<label for="points">Infrator</label>
+							<input id="membro" type="text" name="membro" value="<?php print $adv[0]['id']; ?>" readonly="readonly">
 						</div>
 					</div>
 					<div class="row">
@@ -119,7 +119,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="advID">ID</label>
-							<input id="advID" type="text" name="advID" readonly="readonly"value="<?php print $adv[0]['id']; ?>"><br><br>
+							<input id="advID" type="text" name="advId" readonly="readonly" value="<?php print $adv[0]['id']; ?>"><br><br>
 						</div>
 					</div>
 					<div class="row">

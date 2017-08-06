@@ -1,7 +1,6 @@
 function editAdv(idAdv){
   
   window.location= "http://localhost:8080/view/editarAdvertencia.php?advId="+idAdv;
-
 }
 
 function deleteAdv(id){

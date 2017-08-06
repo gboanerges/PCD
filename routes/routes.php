@@ -88,14 +88,7 @@
 		
 	}
 
-	// //Deletar Conta
-	// if (isset($_POST['deletarConta'])) {
 
-	// 	unset($_POST['deletarConta']);
-	// 	$membroController = new MembrosController();
-	// 	//PEGAR ID DA CONTA A SER DELETADA
-	// 	$del = $membroController->deletarConta();		
-	// }
 	//Deletar Conta
 	if(isset($_GET['deletarConta'])){
 		$membroController = new MembrosController();
@@ -144,11 +137,11 @@
 		$pontos = $_POST['pontos'];
 		$responsavel = $_POST['responsavel'];
 		$indeferida = $_POST['selectIndef'];
-		$idAdv = $_POST['advID'];
+		$idAdv = $_POST['advId'];
 		unset($_POST['editAdv']);
 
 		$advController = new AdvertenciasController();
-		$editar = $advController->editarAdvertencia($motivo, $data, $pontos, $responsavel, $indeferida, "$idAdv");
+		$editar = $advController->editarAdvertencia($motivo, $data, $pontos, $responsavel, $indeferida, $idAdv);
 		
 		if($editar =='0'){
 			header("location:../view/advertencias.php?edit=false");
