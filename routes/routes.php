@@ -58,7 +58,7 @@
 
 		$membrosController = new MembrosController();
 		$cad = $membrosController->cadastrarContas($login, $codedSenha, $nome, $cargo);
-		if($cad){
+		if($cad ){
 			header("location:../view/gerenciarContas.php?cad=true");
 		}else{
 			header("location:../view/cadastro.php?cad=false");

@@ -1,13 +1,13 @@
 function editId(id){
   
-  window.location= "http://localhost:8080/view/editarConta.php?userId="+id;
+  window.location= "http://localhost:8081/view/editarConta.php?userId="+id;
 
 }
 
 function deleteId(id){
   
   $.ajax({
-      url: 'http://localhost:8080/routes/routes.php',
+      url: 'http://localhost:8081/routes/routes.php',
       type: 'get',
       data:{deletarConta: id},
       success: function(){
@@ -36,28 +36,28 @@ $(document).ready(function(){
 
   $("#regras").click(function(){
 
-      window.location= "http://localhost:8080/view/regras.php";
+      window.location= "http://localhost:8081/view/regras.php";
   });
 
   $("#advBTN").click(function(){
 
-      window.location= "http://localhost:8080/view/advertencias.php";
+      window.location= "http://localhost:8081/view/advertencias.php";
   });
 
   $("#contasBTN").click(function(){
 
-      window.location= "http://localhost:8080/view/gerenciarContas.php";
+      window.location= "http://localhost:8081/view/gerenciarContas.php";
   });
 
   $("#cadastrar").click(function(){
 
-        window.location= "http://localhost:8080/view/cadastro.php";
+        window.location= "http://localhost:8081/view/cadastro.php";
     });
 
   $("#logout").click(function(){
 
 		$.ajax({
-            url: 'http://localhost:8080/routes/routes.php',
+            url: 'http://localhost:8081/routes/routes.php',
             type: 'get',
             data:{action:'logoff'},
             success: function(){

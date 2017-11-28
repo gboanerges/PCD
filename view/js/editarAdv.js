@@ -62,7 +62,7 @@ $(document).ready(function(){
 	$("#logoutEditAdv").click(function(){
 
 		$.ajax({
-			url: 'http://localhost:8080/routes/routes.php',
+			url: 'http://localhost:8081/routes/routes.php',
 			type: 'get',
 			data:{action:'logoff'},
 			success: function(){
@@ -74,17 +74,17 @@ $(document).ready(function(){
 
 	$("#advBTN").click(function(){
 
-		window.location= "http://localhost:8080/view/advertencias.php";
+		window.location= "http://localhost:8081/view/advertencias.php";
 	});
 
 	$("#contasBTN").click(function(){
 
-		window.location= "http://localhost:8080/view/gerenciarContas.php";
+		window.location= "http://localhost:8081/view/gerenciarContas.php";
 	});
 
 	$("#regras").click(function(){
 
-		window.location= "http://localhost:8080/view/regras.php";
+		window.location= "http://localhost:8081/view/regras.php";
      });
      
 });
